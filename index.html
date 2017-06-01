@@ -1,0 +1,43 @@
+<!Doctype html>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>GifTastic</title>
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+	<div id="container">
+		<div id="animalButtons">
+		<button type="button" class="btn btn-primary btn-lg" data-animal="cat">Cat</button>
+		<button type="button" class="btn btn-primary btn-lg" data-animal="dog">Dog</button>
+		<button type="button" class="btn btn-primary btn-lg" data-animal="bird">Bird</button>
+		<button type="button" class="btn btn-primary btn-lg" data-animal="whale">Whale</button>
+		<button type="button" class="btn btn-primary btn-lg" data-animal="pig">Pigs</button>
+		<button type="button" class="btn btn-primary btn-lg" data-animal="bear">Bear</button>
+		<button type="button" class="btn btn-primary btn-lg" data-animal="jellyfish">Jellyfish</button>
+		<button type="button" class="btn btn-primary btn-lg" data-animal="panther">Panther</button>
+		<button type="button" class="btn btn-primary btn-lg" data-animal="duck">Duck</button>
+		<button type="button" class="btn btn-primary btn-lg" data-animal="dolphin">Dolphin</button>
+		<br><br>
+
+		</div>
+	
+		<form id="animal-form">
+	      <label for="animal-input">Add an animal</label>
+	      <input type="text" id="animal-input">
+
+	      <!-- Button triggers animal or image  to be added -->
+	      <input id="add-animal" type="submit" class="btn btn-primary btn-lg" value="Submit">
+	    </form>
+	    <br><br>
+		<!-- animals is the container for all the animals  -->
+		<div id="gifsAnimals"></div>
+
+
+<script src='http://code.jquery.com/jquery-2.1.3.min.js'></script>
+<script src="assets/javascript/app.js"></script>
+
+	</div> <!-- end container -->
+</body>
+</html>
