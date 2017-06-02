@@ -29,27 +29,28 @@ $(document).ready(function(){
 					var animalImage = $('<img>');
 					animalImage.attr('src', results[i].images.fixed_height.url);
 					///apending the image but to work need a div to show content
-					animalDiv.append(animalImage,'<br>'+'<br>');
+					//animalDiv.append(animalImage,'<br>'+'<br>');
 
 					// will be used later to animate gifs
 					animalImage.attr('data-state','still');
-					animalImage.addClass("gif");
+					//animalImage.addClass("gif");
 
-					var animalKingdom = $('<img>') ;
-					animalKingdom.attr('data-still',results[i].images.fixed_width_small_still.url);
-					animalDiv.append(animalKingdom);
+				
+					animalImage.attr('data-still',results[i].images.fixed_width_small_still.url);
+					//animalDiv.append(animalKingdom);
 
-					var aKingdom = $('<img>') ;
-					aKingdom.attr('data-animate',results[i].images.fixed_height.url);
-					animalDiv.append(aKingdom);
+					//var aKingdom = $('<img>') ;
+					animalImage.attr('data-animate',results[i].images.fixed_height.url);
+					//animalDiv.append(aKingdom);
 
 					// contents work together with the div displayImage first image get appended it then need a div to show content on div displayImage
-					
+					animalDiv.append(animalImage);
 					$("#gifsAnimals").prepend(animalDiv);
 				}// end of for loop
 			});	
 			//function animates the gifs
-		$(document).on("click", ".gif", function(){
+		$(document).on("click", ".gifs", function(){
+		console.log("this is a button");
 		var state = $(this).attr('data-state');
 		if ( state == 'still'){
 		    $(this).attr('src', $(this).data('animate'));
@@ -73,15 +74,27 @@ $(document).ready(function(){
     			var a = $('<button>').addClass("btn btn-primary btn-lg");
     			
     			//add a class attribute
-    			a.attr(('data-name'), topics[i]);
+    			a.attr('data-name', topics[i]);
     			//shows text
     			a.text(topics[i]);
+    			//var queryURL ="http://api.giphy.com/v1/gifs/search?q="+a+"&api_key=dc6zaTOxFJmzC&limit=10";
     			//$("#add-animal").val();
+
     			//append button to id of animalButtons
     			$("#animalButtons").append(a);
     		}//end for
     	}//end of createbuttons
 
+    	$('#animalButtons').on('click','.btn',function(){
+                console.log("this is a button");
+            //adds into the array
+            topics.push(topic);
+            //call 
+            displayAnimalInfo();
+    		var queryURL ="http://api.giphy.com/v1/gifs/search?q="+topic+"&api_key=dc6zaTOxFJmzC&limit=10";
+    		
+    		//$("#animalButtons").prepend('.btn');
+    	})
     	
     	//handles eventswhen add button is clicked
     	$("#add-animal").on("click", function(event){
@@ -100,7 +113,8 @@ $(document).ready(function(){
     		return false;
 
     	});
+
     	//adding click event listeners to all elements with class of topic
-    $("button").on("click",displayAnimalInfo());
+    $(document).on("click",displayAnimalInfo());
 
 });//end of ready function
